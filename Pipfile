@@ -1,0 +1,14 @@
+[[source]]
+url = "http://172.17.5.94:8088/repository/pypy-proxy/simple"
+verify_ssl = false
+name = "pip_conf_index_global"
+
+[packages]
+flask = "==2.2.5"
+requests = "*"
+urllib3 = "<2.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"
