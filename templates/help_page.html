@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Help</title>
+</head>
+<style>
+    img {
+        border: 2px solid #3575D7;
+        border-radius: 12px;
+        margin-left: 35px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-family: Verdana, sans-serif;
+        padding-left: 45px;
+        font-size: 20px;
+        width: 90%;
+    }
+    #main_body{
+        width: 95%;
+        margin: auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        background-color: white;
+        border-radius: 20px;
+    }
+    body{
+        background-color: #3575D7;
+    }
+    #status_and_user{
+        width: 90%;
+    }
+    h1{
+        padding-top: 15px;
+        margin: auto;
+        width: 80%;
+        text-align: center;
+    }
+    #titlu{
+        margin: auto;
+        width: 40%;
+        font-size: 30px;
+        text-decoration: underline;
+        color: #063986;
+    }
+    .useful{
+        padding-left:60px;
+        font-size: large;
+        font-weight: bold;
+        color: #063986;
+    }
+    h2{
+        color: #063986;
+        padding-left:65px ;
+        text-decoration: underline;
+        padding-top: 25px;
+        font-size: 29px;
+    }
+    .tab {
+            display: inline-block;
+            margin-left: 60px;
+        }
+</style>
+
+<body>
+    <div id="main_body">
+        <div id="titlu">
+            <h1>Useful information</h1><br>
+        </div>
+        <div class="useful">
+            <p> <span class="tab"></span>This page acts as a device availability tool where users can add, remove and edit the devices used in the Software Testing department.
+                 Any device that is not locked, will reset its status and user at 7pm every night. The page auto-refreshes every 45 seconds so modifications must be made in that time frame. 
+                Adding, deleting and editing a device cannot all be done at the same time, they are sepparate actions. The user must choose to either add, remove or edit devices. The user may edit any number of devices but no modifications
+                will take place unless they click "SUBMIT" at the end.</p>
+        </div>
+        <div>
+            <h2>Adding a new device</h2>
+        </div>
+        <div>
+            <p>To add a device, users will enter a device name or ip in the "Add new device" textbox:</p>
+        </div>
+        <img src="{{ url_for('static', filename='Add_device.png') }}">
+        <div>
+            <p>Then click "SUBMIT".</p>
+        </div>
+        <div><img src="{{ url_for('static', filename='submit.png') }}"></div>
+        <div>
+            <h2>Deleting a device</h2>
+        </div>
+        <div>
+            <p>To delete a device, users will enter a device's ID in the "Delete device" textbox:</p>
+        </div>
+        <img src="{{ url_for('static', filename='del.png') }}">
+        <div>
+            <p>Then click "SUBMIT".</p>
+        </div>
+        <div>
+            <h2>Last update</h2>
+        </div>
+        <div>
+            <p>The "Last update" right under the "Delete device" label, shows the last time that anything was modified
+                on the page.</p>
+        </div>
+        <img src="{{ url_for('static', filename='last_update.png') }}">
+        <div>
+            <h2>Editing devices</h2>
+        </div>
+        <div>
+            <p>The "Type" and "User" columns, are textboxes and users can enter the device's type and who is currently
+                using the device. After any number of modifications to the already existing devices, the user must click "SUBMIT" in order for the changes to take place</p>
+        </div>
+        <img id="status_and_user" src="{{ url_for('static', filename='type_and_user.png') }}">
+        <div>
+            <p>The "Status" column, contains drop-down boxes where users can set a device as either "Busy" or
+                "Available".</p>
+        </div>
+        <div>
+            <p>The "Lock" checkbox, will prevent a device from resetting its status and user at 7pm.</p>
+        </div>
+        <img src="{{ url_for('static', filename='locked.png') }}">
+        <div>
+            <p>The "RESET FIELDS" button at the bottom of the page will reset the status and user of all devices,
+                regardless of their lock status.</p>
+        </div>
+        <img src="{{ url_for('static', filename='reset_fields.png') }}">
+    </div>
+</body>
+
+</html>
