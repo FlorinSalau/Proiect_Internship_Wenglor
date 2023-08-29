@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Devices</title>
+    <script>
+        setTimeout(function () {
+            console.warn('reloading');
+            location.reload();
+            console.warn('reset status');
+            resetStatus();
+        }, 45000); // Refresh the page every 45 seconds
+    </script>
+</head>
+<style>
+    .toprow {
+        width: 27.3%;
+        padding-top: 5px;
+        padding-bottom: 7px;
+        text-align: center;
+        border-right: 2px solid #3575D7;
+        vertical-align: middle;
+        border-bottom: 2px solid #3575D7;
+        font-family: Verdana, sans-serif;
+    }
+
+    #id_col {
+        width: 6%;
+        padding-top: 5px;
+        padding-bottom: 7px;
+        text-align: center;
+        border-right: 2px solid #3575D7;
+        vertical-align: middle;
+        border-bottom: 2px solid #3575D7;
+        font-family: Verdana, sans-serif;
+    }
+
+    select {
+        width: 120px;
+        display: block;
+    }
+
+    table {
+        width: 100%;
+        margin-top: auto;
+        padding-top: 80px;
+        text-align: center;
+        border-collapse: collapse;
+    }
+
+    #submit {
+        float: right;
+        margin-top: 7px;
+        margin-right: 20px;
+        text-align: center;
+        margin-bottom: 15px;
+        border: solid 3px #3575D7;
+        border-radius: 14px;
+    }
+
+    #sub_button {
+        width: 115px;
+        height: 37px;
+        border-radius: 11px;
+        letter-spacing: .1em;
+        font-weight: bold;
+        font-family: Verdana, sans-serif;
+        border: #3575D7 solid 2px;
+        background-color: white;
+    }
+
+
+    #sub_button:hover {
+        background-color: #F3F2F2;
+    }
+
+    .Add_device {
+        width: 33%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        vertical-align: middle;
+        letter-spacing: 1px;
+    }
+
+    select {
+        margin-left: 37%;
+    }
+
+    .lockbox {
+        margin-right: 6%;
+        padding-top: 5px;
+    }
+
+    .inserted {
+        width: 27.3%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+        border-right: 2px solid #3575D7;
+        vertical-align: middle;
+        font-family: Verdana, sans-serif;
+    }
+
+    .inserted_id {
+        width: 6%;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+        border-right: 2px solid #3575D7;
+        vertical-align: middle;
+        font-family: Verdana, sans-serif;
+    }
+
+    .right {
+        border-right: 0px;
+    }
+
+    #add_dev {
+        padding-left: 10px;
+        width: 40%;
+        font-family: Verdana, sans-serif;
+        margin: 0;
+    }
+
+    #txtbox_add {
+        border: .1em solid;
+        border-radius: 7px;
+    }
+
+    #txtbox_del {
+        border: .1em solid;
+        border-radius: 7px;
+        margin-left: 46px;
+    }
+
+    #del_dev {
+        margin-bottom: 5px;
+        padding-left: 10px;
+        padding-top: 5px;
+        width: 40%;
+        font-family: Verdana, sans-serif;
+    }
+
+    body {
+        background-color: #3575D7;
+    }
+
+    #main_update {
+        padding: 17px;
+        border-radius: 17px;
+        margin: auto;
+        width: 95%;
+        background-color: #FFFFFF;
+        border: 1px solid #F3F2F2;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    #reset {
+        width: 50%;
+        margin-right: 0;
+        display: inline-block;
+    }
+
+    #res {
+        margin-left: 1%;
+        width: 20%;
+        float: left;
+        margin-right: 18%;
+    }
+
+    #reset_button {
+        border-radius: 15px;
+        margin-left: 3%;
+        width: 180px;
+        height: 45px;
+        letter-spacing: .1em;
+        color: #F3F2F2;
+        font-size: medium;
+        font-weight: bold;
+        font-family: Verdana, sans-serif;
+        border: 4px solid #F3F2F2;
+        background-color: #3575D7;
+    }
+
+    #help {
+        width: 20%;
+        float: right;
+        margin-left: 10%;
+        margin-right: 1.3%;
+        padding-bottom: 25px;
+    }
+
+    #help_button {
+        border-radius: 15px;
+        margin-left: 3%;
+        width: 45px;
+        height: 45px;
+        letter-spacing: .1em;
+        color: #F3F2F2;
+        font-size: medium;
+        font-weight: bold;
+        font-family: Verdana, sans-serif;
+        border: 4px solid #F3F2F2;
+        background-color: #3575D7;
+        float: right;
+    }
+
+    #help_button:hover {
+        background-color: #1953ac;
+    }
+
+    #reset_button:hover {
+        background-color: #1953ac;
+    }
+
+    .row_inserat:hover {
+        background-color: #F3F2F2;
+    }
+
+    select {
+        border: .1em solid;
+        border-radius: 6px;
+        font-weight: bold;
+        letter-spacing: .1em;
+        font-family: Verdana, sans-serif;
+    }
+
+    .insert_user_txtbox {
+        border: .1em solid;
+        border-radius: 6px;
+        font-family: Verdana, sans-serif;
+    }
+
+    .insert_type_txtbox {
+        border: .1em solid;
+        border-radius: 6px;
+        font-family: Verdana, sans-serif;
+        width: 45%;
+        font-weight: bold;
+    }
+
+    option {
+        font-weight: bold;
+        letter-spacing: .1em;
+    }
+
+    .select_busy {
+        color: red;
+    }
+
+    .select_available {
+        color: green;
+    }
+
+    .toprow_type {
+        width: 12%;
+        padding-top: 5px;
+        padding-bottom: 7px;
+        text-align: center;
+        border-right: 2px solid #3575D7;
+        vertical-align: middle;
+        border-bottom: 2px solid #3575D7;
+        font-family: Verdana, sans-serif;
+    }
+
+    .inserted_type {
+        width: 12%;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+        border-right: 2px solid #3575D7;
+        vertical-align: middle;
+        font-family: Verdana, sans-serif;
+    }
+
+    #last_update {
+        margin-left: .7%;
+        margin-bottom: 10px;
+    }
+    #timer{
+        padding-top: 13px;
+        padding-bottom: 13px;
+        width: 24%;
+        margin: auto;
+        float: left;
+        color: #3575D7;
+        background-color: #F3F2F2;
+        font-family: Verdana, sans-serif;
+        font-size: 20px;
+        text-align: center;
+        border-radius: 15px;
+        font-weight: bold;
+    }
+    #timp{
+        border: 3px solid #3575D7;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 11px;
+    }
+</style>
+
+<body>
+    <form id="main_update" method='POST' action='/update'>
+        <div id="submit"><input id="sub_button" value="SUBMIT" type="submit" name="sub_button"></div>
+        <div id="add_dev"><label>Add new device (Name):</label>
+            <input id="txtbox_add" type="text" name="add_txt">
+        </div>
+        <div id="del_dev"><label>Delete device (ID):</label>
+            <input id="txtbox_del" type="text" name="del_txt">
+        </div>
+        <div id="last_update"><label>Last update: </label>{{last_update[0][0]}}</div>
+        <div>
+            <table>
+                <tr>
+                    <td id="id_col">
+                        <h3>ID</h3>
+                    </td>
+                    <td class="toprow">
+                        <h3>Device</h3>
+                    </td>
+                    <td class="toprow_type">
+                        <h3>Type</h3>
+                    </td>
+                    <td class="toprow">
+                        <h3>Status</h3>
+                    </td>
+                    <td class="toprow right">
+                        <h3>User</h3>
+                    </td>
+                </tr>
+                {%for record in lista_devices%}
+                <tr class="row_inserat">
+                    <td class="inserted_id">
+                        <label name="id_inserat_{{ record[0] }}">{{ record[0] }}</label>
+                    </td>
+                    <td class="inserted">
+                        <label name="nume_inserat_{{ record[0] }}">{{ record[1] }}</label>
+                    </td>
+                    <td class="inserted_type">
+                        <input class="insert_type_txtbox" type="text" name="type_inserat_{{ record[0] }}"
+                            value="{{ record[5] }}">
+                    </td>
+                    {% if record[2] == 'Busy' %}
+                    <td class="inserted">
+                        <select name="status_inserat_{{ record[0] }}" class="select_busy">
+                            <option value="Busy" style="color: red;">Busy</option>
+                            <option value="Available" style="color: green;">Available</option>
+                        </select>
+                        <div class="lockbox"><input type="checkbox" name="lock_{{ record[0] }}" value="locked" {%if
+                                record[4]=='T' %} checked {%endif%}> Lock</div>
+                    </td>
+                    {% else %}
+                    <td class="inserted">
+                        <select name="status_inserat_{{ record[0] }}" class="select_available">
+                            <option value="Available" style="color: green;">Available</option>
+                            <option value="Busy" style="color: red;">Busy</option>
+                        </select>
+                        <div class="lockbox"><input type="checkbox" name="lock_{{ record[0] }}" value="locked" {%if
+                                record[4]=='T' %} checked {%endif%}> Lock</div>
+                        {% endif %}
+                    <td class="inserted right">
+                        <input class="insert_user_txtbox" type="text" name="user_inserat_{{ record[0] }}"
+                            value="{{ record[3] }}">
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+    </form>
+    <form id="res" method='POST' action="/reset_fields">
+        <div id="reset"><input id="reset_button" value="RESET FIELDS" type="submit" name="reset_button"></div>
+    </form>
+    <div id="timer"><label id="timp">Time left until 7PM: {{countdown}} Minutes.</label></div>
+    <form id="help" method='POST' action="/help">
+        <div id="help"><input id="help_button" value="?" type="submit" name="help_button"></div>
+    </form>
+</body>
+
+</html>
